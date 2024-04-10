@@ -1,0 +1,14 @@
+{
+  "name": "catplate",
+  "version": "1.0.0",
+  "description": "A productivity app with cats🐈 and plates🍽️. Built with electron⚛",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick-orz",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^29.2.0"
+  }
+}
