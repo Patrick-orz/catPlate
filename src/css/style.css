@@ -6,6 +6,11 @@ body {
     margin: 20px; /* Distance from screen edge */
 }
 
+/* Style for the editor */
+#plate-input {
+    padding: 5px;
+    white-space: pre-wrap;
+}
 /* Style for the button */
 .custom-button {
     border: none;
