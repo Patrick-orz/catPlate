@@ -1,0 +1,77 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    border: 2px solid grey;
+    border-radius: 10px; /* Rounded border */
+    padding: 20px; /* Add padding */
+    margin: 20px; /* Distance from screen edge */
+}
+
+/* Style for the button */
+.custom-button {
+    border: none;
+    border-radius: 5px;
+
+    aspect-ratio: 1; /* Make the button square */
+    display: inline-flex;
+    padding: 5px; /* Add padding */
+
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Change background color on hover */
+.custom-button:hover {
+    background-color: #ccc; /* Lighter grey color on hover */
+}
+
+/* Custom bullet style */
+ul {
+    list-style-type: none; /* Remove default bullet */
+    padding-left: 20px; /* Add some padding for spacing */
+}
+
+ul li:before {
+    content: "";
+    display: inline-block;
+    width: 10px; /* Adjust size of the bullet */
+    height: 10px; /* Adjust size of the bullet */
+    border: 2px solid #333; /* Darker border color */
+    border-radius: 50%; /* Make it a circle */
+    margin-right: 10px; /* Add space between bullet and text */
+}
+
+/* Change bullet color based on indentation level */
+ul li:before {
+    background-color: rgba(var(--color1),0.2);
+    border-color: rgb(var(--color1)); /* first level */
+}
+ul ul li:before {
+    background-color: rgba(var(--color2),0.2);
+    border-color: rgb(var(--color2)); /* second level */
+}
+ul ul ul li:before {
+    background-color: rgba(var(--color3),0.2);
+    border-color: rgb(var(--color3)); /* third level */
+}
+ul ul ul ul li:before {
+    background-color: rgba(var(--color4),0.2);
+    border-color: rgb(var(--color4)); /* fourth level */
+}
+ul ul ul ul ul li:before {
+    background-color: rgba(var(--color5),0.2);
+    border-color: rgb(var(--color5)); /* fifth level */
+}
+
+/* Indentation color variables */
+:root{
+    --color1: 253, 138, 138;
+    --color2: 255, 203, 203;
+    --color3: 158, 161, 212;
+    --color4: 168, 209, 209;
+    --color5: 223, 235, 235;
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
