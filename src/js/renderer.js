@@ -121,25 +121,3 @@ plateInput.addEventListener('keydown', function(e) {
         document.execCommand('insertHTML', false, '&#009');
     }
 });
-
-// Priority dropdown filter
-document.getElementById('filterInput').addEventListener('input', function() {
-    var filter = this.value.toUpperCase();
-    var items = document.querySelectorAll('.dropdown-list');
-    console.log(filter);
-    items.forEach(function(item) {
-        var text = item.textContent.toUpperCase().trim();
-        if (text.includes(filter)) {
-            console.log(text);
-            item.style.display = '';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-});
-
-// Priority dropdown select
-$(".dropdown-item").click(function (e) {
-    $(".dropdown-item").removeClass("active");
-    $(this).addClass("active");
-});

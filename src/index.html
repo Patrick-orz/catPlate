@@ -37,29 +37,33 @@
 
     <!-- BODY -->
     <body>
-        <h1>Plates🍽️</h1>
-        <hr>
+        <!-- Header -->
+        <div class="p-2">
+            <h1 class="text-center">Plates🍽️</h1>
+            <hr>
+        </div>
 
         <!-- https://getbootstrap.com/docs/5.3/examples/ -->
+        <!-- Event adder -->
         <div class="container">
             <div class="row d-flex">
                 <!-- Event description -->
-                <div class="col-4 justify-content-center align-items-end g-0">
+                <div class="col-7 justify-content-center align-items-end g-0">
                     <div class="w-98">
                         <label for="eventDescription">Description</label>
                         <div class="input-group mb-3">
-                            <input type="text" placeholder="Description of event..." id="eventDescription" class="form-control">
+                            <input type="text" placeholder="Description of event..." id="eventDescription" class="form-control description-input">
                         </div>
                     </div>
                 </div>
                 <!-- Priority Select -->
-                <div class = "col-4 d-flex justify-content-center align-items-end g-0">
+                <div class = "col-2 d-flex justify-content-center align-items-end g-0">
 
                     <div class="dropdown w-98">
 
                         <label for="priorityLevel">Priority</label>
                         <div class="input-group mb-3">
-                            <input type="text" id="priorityLevel" class="form-control" placeholder="None" aria-label="Priority" aria-describedby="basic-addon2">
+                            <input type="text" id="priorityLevel" class="form-control priority-input" placeholder="None" aria-label="Priority" aria-describedby="basic-addon2" readonly>
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                 <i class="fa-solid fa-layer-group"></i>
                             </button>
@@ -83,7 +87,7 @@
                                     Low Priority
                                 </a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li class="dropdown-list" ><a class="active dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                <li class="dropdown-list" ><a class="active dropdown-item-default dropdown-item d-flex align-items-center gap-2 py-2" href="#">
                                     <span class="d-inline-block bg-secondary rounded-circle p-1"></span>
                                     <i>None</i>
                                 </a></li>
@@ -101,12 +105,12 @@
                 </div>
 
                 <!-- Due Select -->
-                <div class = "col-3 d-flex justify-content-center align-items-end g-0">
+                <div class = "col-2 d-flex justify-content-center align-items-end g-0">
 
                     <div class="w-98">
                         <label for="dueDate">Due</label>
                         <div class="input-group mb-3">
-                            <input type="date" id="dueDate" class="form-control">
+                            <input type="date" id="dueDate" class="form-control due-input">
                         </div>
                     </div>
                 </div>
@@ -123,12 +127,14 @@
                 <div class = "col-1 d-flex flex-column justify-content-top align-items-center g-0">
 
                     <label for="addButton">Add</label>
-                        <button class="btn btn-primary" type="button" aria-expanded="false">
+                        <button class="btn btn-primary add-input" type="button" aria-expanded="false">
                             <i id="addButton" class="fa-solid fa-plus"></i>
                         </button>
                 </div>
             </div>
         </div>
+
+        <hr>
 
         <button class="btn custom-button" id="edit-button">
 
@@ -154,5 +160,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!-- Link renderer process -->
     <script src="./js/renderer.js" type = "module"></script>
+    <!-- Link event adder -->
+    <script src="./js/eventAdder.js"></script>
 </html>
 
