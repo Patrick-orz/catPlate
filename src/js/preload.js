@@ -4,6 +4,6 @@ window.ipcRenderer = ipcRenderer;
 
 // Allows for save-load in web js
 contextBridge.exposeInMainWorld('plate', {
-    savePlate: (content) => ipcRenderer.send('plate:save-plate', content),
-    loadPlate: () => ipcRenderer.invoke('plate:load-plate'),
+    savePlate: (key, content) => ipcRenderer.send('plate:save-plate', key, content),
+    loadPlate: (key) => ipcRenderer.invoke('plate:load-plate', key),
 })

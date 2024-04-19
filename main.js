@@ -9,7 +9,8 @@ const Store = require('./src/js/store.js');
 const plate = new Store({
     configName: 'plate',
     defaults: {
-        text: "Write something!",
+        text: "Write something!", // Pure text (what you see when editing)
+        events: [],
     }
 })
 
@@ -42,13 +43,14 @@ const setTray = async() => {
     tray.setContextMenu(contextMenu);
 }
 
-//Save & load plate
-function handleSavePlate(event, content){
-    plate.set("text", content);
+//Save & load plateRaw
+function handleSavePlate(event, key = "text", content){
+    plate.set(key, content);
 }
-function handleLoadPlate() {
-    console.log(plate.get("text"));
-    return plate.get("text");
+function handleLoadPlate(event, key = "text") {
+    console.log(key);
+    console.log(plate.get(key));
+    return plate.get(key);
 }
 
 

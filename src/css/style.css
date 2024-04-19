@@ -1,9 +1,6 @@
 body {
     font-family: 'Comic Sans MS', cursive;
-    border: 2px solid grey;
-    border-radius: 10px; /* Rounded border */
     padding: 20px; /* Add padding */
-    margin: 20px; /* Distance from screen edge */
 }
 
 /* Style for the editor */
@@ -29,12 +26,12 @@ body {
 }
 
 /* Custom bullet style */
-ul {
+.events-item ul {
     list-style-type: none; /* Remove default bullet */
     padding-left: 20px; /* Add some padding for spacing */
 }
 
-ul li:before {
+.events-item ul li:before {
     content: "";
     display: inline-block;
     width: 10px; /* Adjust size of the bullet */
@@ -45,25 +42,35 @@ ul li:before {
 }
 
 /* Change bullet color based on indentation level */
-ul li:before {
+.events-item ul li:before {
     background-color: rgba(var(--color1),0.2);
     border-color: rgb(var(--color1)); /* first level */
 }
-ul ul li:before {
+.events-item ul ul li:before {
     background-color: rgba(var(--color2),0.2);
     border-color: rgb(var(--color2)); /* second level */
 }
-ul ul ul li:before {
+.events-item ul ul ul li:before {
     background-color: rgba(var(--color3),0.2);
     border-color: rgb(var(--color3)); /* third level */
 }
-ul ul ul ul li:before {
+.events-item ul ul ul ul li:before {
     background-color: rgba(var(--color4),0.2);
     border-color: rgb(var(--color4)); /* fourth level */
 }
-ul ul ul ul ul li:before {
+.events-item ul ul ul ul ul li:before {
     background-color: rgba(var(--color5),0.2);
     border-color: rgb(var(--color5)); /* fifth level */
+}
+
+/* Change priority active color */
+.dropdown-menu .dropdown-item:active {
+    background-color: var(--bs-gray-500);
+}
+
+/* Change color of button when active */
+.dropdown-menu .dropdown-item.active {
+    background-color: var(--bs-gray-500);
 }
 
 /* Indentation color variables */
@@ -79,4 +86,8 @@ ul ul ul ul ul li:before {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.w-98 {
+    width: 98% !important;
 }

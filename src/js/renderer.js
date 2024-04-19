@@ -1,15 +1,11 @@
-// Fetch element
+//1sFetch element
 const plateInput = document.getElementById("plate-input");
 const editButton = document.getElementById("edit-button");
 
 // Turns normalized innerText string into plate HTML format
 function intoPlate(content) {
+
     content = content.split('\n');
-    // // remove empty strings
-    // content = content.filter(function(element) {
-    //     // Return true if the element is not an empty string
-    //     return element !== "";
-    // });
     console.log(content);
 
     let contentHTML = [];
@@ -76,7 +72,7 @@ let viewing = true;
 
 async function initialize() {
     // load saved plate
-    plateInput.innerText = normalize(await plate.loadPlate());
+    plateInput.innerText = normalize(await plate.loadPlate("text"));
     plateInput.innerHTML = intoPlate(plateInput.innerText);
 }
 initialize()
@@ -85,7 +81,7 @@ initialize()
 // toggle edit button
 async function toggleMarkdownEdit() {
     if (viewing) { // view -> edit
-        plateInput.innerText = normalize(await plate.loadPlate());
+        plateInput.innerText = normalize(await plate.loadPlate("text"));
         viewing = false;
 
         // Enable editing border
@@ -100,9 +96,10 @@ async function toggleMarkdownEdit() {
         console.log("Save");
         plateInput.innerText = normalize(plateInput.innerText);
         // Call save
-        plate.savePlate(plateInput.innerText);
+        plate.savePlate("text", plateInput.innerText);
         viewing = true;
 
+        // display parsed content
         plateInput.innerHTML = intoPlate(plateInput.innerText);
 
         // Disable editing border
@@ -123,4 +120,26 @@ plateInput.addEventListener('keydown', function(e) {
         // Insert a tab character
         document.execCommand('insertHTML', false, '&#009');
     }
+});
+
+// Priority dropdown filter
+document.getElementById('filterInput').addEventListener('input', function() {
+    var filter = this.value.toUpperCase();
+    var items = document.querySelectorAll('.dropdown-list');
+    console.log(filter);
+    items.forEach(function(item) {
+        var text = item.textContent.toUpperCase().trim();
+        if (text.includes(filter)) {
+            console.log(text);
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+
+// Priority dropdown select
+$(".dropdown-item").click(function (e) {
+    $(".dropdown-item").removeClass("active");
+    $(this).addClass("active");
 });

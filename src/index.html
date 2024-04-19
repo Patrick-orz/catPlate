@@ -6,14 +6,31 @@
         <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
 
         <!-- CSP that allows bootstrap -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css; script-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-        <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js; script-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+            style-src 'self' 
+            https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css 
+            https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css 
+            https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css 
+            ; 
+            script-src 'self' 
+            https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js 
+            https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js 
+            https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js 
+            https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js 
+            ; 
+            font-src 'self' data: https:;
+            ">
+        <!-- <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js; script-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> -->
 
         <title>Hello from Electron text editor!</title>
 
+        <!-- CSS -->
         <!-- Link bootstrap CSS for easy styling -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+        <!-- Link font-awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <!-- Link bootstrap-datepicker -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Link customize css -->
         <link  href="./css/style.css" rel="stylesheet">
     </head>
@@ -22,6 +39,97 @@
     <body>
         <h1>Plates🍽️</h1>
         <hr>
+
+        <!-- https://getbootstrap.com/docs/5.3/examples/ -->
+        <div class="container">
+            <div class="row d-flex">
+                <!-- Event description -->
+                <div class="col-4 justify-content-center align-items-end g-0">
+                    <div class="w-98">
+                        <label for="eventDescription">Description</label>
+                        <div class="input-group mb-3">
+                            <input type="text" placeholder="Description of event..." id="eventDescription" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!-- Priority Select -->
+                <div class = "col-4 d-flex justify-content-center align-items-end g-0">
+
+                    <div class="dropdown w-98">
+
+                        <label for="priorityLevel">Priority</label>
+                        <div class="input-group mb-3">
+                            <input type="text" id="priorityLevel" class="form-control" placeholder="None" aria-label="Priority" aria-describedby="basic-addon2">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </button>
+
+
+                            <ul class="list-unstyled mb-0 dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                <form class="p-2 mb-2 bg-body-tertiary border-bottom">
+                                    <input type="search" class="form-control" autocomplete="false" placeholder="Type to filter..." id = "filterInput">
+                                </form>
+                                <li class="dropdown-list" ><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                    <span class="d-inline-block bg-danger rounded-circle p-1"></span>
+                                    High Priority
+                                </a></li>
+                                <li class="dropdown-list" ><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                    <span class="d-inline-block bg-warning rounded-circle p-1"></span>
+                                    Medium Priority
+                                </a></li>
+                                <li class="dropdown-list" ><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                    <span class="d-inline-block bg-success rounded-circle p-1"></span>
+                                    Low Priority
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropdown-list" ><a class="active dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                    <span class="d-inline-block bg-secondary rounded-circle p-1"></span>
+                                    <i>None</i>
+                                </a></li>
+                            </ul>
+
+                        </div>
+                        <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> -->
+                        <!--     <li><a class="dropdown-item" href="#">Action</a></li> -->
+                        <!--     <li><a class="dropdown-item" href="#">Another action</a></li> -->
+                        <!--     <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                        <!-- </ul> -->
+
+                    </div>
+
+                </div>
+
+                <!-- Due Select -->
+                <div class = "col-3 d-flex justify-content-center align-items-end g-0">
+
+                    <div class="w-98">
+                        <label for="dueDate">Due</label>
+                        <div class="input-group mb-3">
+                            <input type="date" id="dueDate" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class = "col-3 d-flex justify-content-center align-items-center"> -->
+                <!---->
+                <!--     <label for="dueDate" class="mb-2">Due</label> -->
+                <!--     <div class="input-group mb3"> -->
+                <!--         <input id="dueDate" class="form-control" type="date" /> -->
+                <!--     </div> -->
+                <!---->
+                <!-- </div> -->
+
+                <!-- Add Button -->
+                <div class = "col-1 d-flex flex-column justify-content-top align-items-center g-0">
+
+                    <label for="addButton">Add</label>
+                        <button class="btn btn-primary" type="button" aria-expanded="false">
+                            <i id="addButton" class="fa-solid fa-plus"></i>
+                        </button>
+                </div>
+            </div>
+        </div>
+
         <button class="btn custom-button" id="edit-button">
 
             <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"/><path d="M15.728 9.686l-1.414-1.414L5 17.586V19h1.414l9.314-9.314zm1.414-1.414l1.414-1.414-1.414-1.414-1.414 1.414 1.414 1.414zM7.242 21H3v-4.243L16.435 3.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 21z"/></svg>
@@ -31,34 +139,19 @@
         </button>
 
         <div id="plate-input" contentEditable = "false">
-            <ul>
-                <li>Hello</li>
-                <ul>
-                    <li>How are you doing</li>
-                    <ul>
-                        <li>How are you doing?</li>
-                        <ul>
-                            <li>How are you doing?</li>
-                            <ul>
-                                <li>How are you doing?</li>
-                                <ul>
-                                    <li>How are you doing?</li>
-                                </ul>
-
-                            </ul>
-
-                        </ul>
-
-                    </ul>
-                </ul>
-            </ul>
         </div>
 
     </body>
 
     <!-- JS -->
+    <!-- Link JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Link bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Link bootstrap-datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script></script>
+    <!-- Link popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!-- Link renderer process -->
     <script src="./js/renderer.js" type = "module"></script>
 </html>
