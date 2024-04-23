@@ -89,6 +89,28 @@ body {
     padding: 20px;
 }
 
+/* Highlight for event priority & due */
+.success-highlight{
+    background-color: rgba(var(--bs-success-rgb), 0.2);
+    color: var(--bs-success);
+    padding: 0.1em 0.2em;
+}
+.warning-highlight{
+    background-color: rgba(var(--bs-warning-rgb), 0.2);
+    color: var(--bs-warning);
+    padding: 0.1em 0.2em;
+}
+.danger-highlight{
+    background-color: rgba(var(--bs-danger-rgb), 0.2);
+    color: var(--bs-danger);
+    padding: 0.1em 0.2em;
+}
+.black-highlight{
+    background-color: rgba(0,0,0, 0.1);
+    color: rgb(0,0,0);
+    padding: 0.1em 0.2em;
+}
+
 .w-98 {
     width: 98% !important;
 }

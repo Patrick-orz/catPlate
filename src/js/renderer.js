@@ -121,3 +121,26 @@ plateInput.addEventListener('keydown', function(e) {
         document.execCommand('insertHTML', false, '&#009');
     }
 });
+
+// ————————————————————————————————————————————————————————————————————————————————————————————————//
+{/* <div class="row d-flex"> */}
+{/*     <div class="col-7 d-flex justify-content-center align-items-center"> */}
+{/*     </div> */}
+{/*     <div class="col-2 d-flex justify-content-center align-items-center"> */}
+{/*         <span class=""> */}
+{/*         </span> */}
+{/*     </div> */}
+{/*     <div class="col-2 d-flex justify-content-center align-items-center"> */}
+{/*         <span class=""> */}
+{/*         </span> */}
+{/*     </div> */}
+{/*     <div class="col-1 d-flex justify-content-center align-items-center"> */}
+{/*         <i class="fa-solid fa-trash-can text-danger"></i> */}
+{/*     </div> */}
+{/* </div> */}
+let events = await plate.loadPlate("events");
+const container = $(".events-container");
+
+for(let i=0;i<await events.length;i++){
+    console.log(events[i][0]["description"]);
+}

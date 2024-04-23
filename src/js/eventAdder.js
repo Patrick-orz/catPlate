@@ -1,6 +1,7 @@
 // Priority dropdown filter
-document.getElementById('filterInput').addEventListener('input', function() {
-    var filter = this.value.toUpperCase();
+function updatePriority() {
+    const filterInput = $(".filter-input");
+    var filter = filterInput.val().toUpperCase();
     var items = document.querySelectorAll('.dropdown-list');
     console.log(filter);
     items.forEach(function(item) {
@@ -12,7 +13,8 @@ document.getElementById('filterInput').addEventListener('input', function() {
             item.style.display = 'none';
         }
     });
-});
+}
+$(".filter-input").on('input', updatePriority);
 
 // Init priority
 $(".priority-input").val($(".dropdown-item.active").text().trim());
@@ -45,11 +47,12 @@ $(".add-input").click(async() => {
     // console.log(description);
 
     // Generate json to store
-    let event = [
-        {description: description.length ===0?"~":description},
-        {priority: (priority.includes("High")?3:(priority.includes("Medium")?2:(priority.includes("Low")?1:0)))},
-        {due: isNaN(date)?"~":year+"-"+month+"-"+day},
-    ];
+    let event =
+    {
+        description: description.length ===0?"~":description, 
+        priority: (priority.includes("High")?3:(priority.includes("Medium")?2:(priority.includes("Low")?1:0))), 
+        due: isNaN(date)?"~":year+"-"+month+"-"+day, 
+    };
 
     // console.log(event);
 
@@ -72,4 +75,6 @@ $(".add-input").click(async() => {
     $(".dropdown-item").removeClass('active');
     $(".dropdown-item-default").addClass('active');
     $(".priority-input").val($(".dropdown-item.active").text().trim());
+    $(".filter-input").val('');
+    updatePriority();
 })

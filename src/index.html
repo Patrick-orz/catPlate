@@ -40,8 +40,8 @@
         <!-- Header -->
         <div class="p-2">
             <h1 class="text-center">Plates🍽️</h1>
-            <hr>
         </div>
+        <hr>
 
         <!-- https://getbootstrap.com/docs/5.3/examples/ -->
         <!-- Event adder -->
@@ -72,7 +72,7 @@
                             <ul class="list-unstyled mb-0 dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
                                 <form class="p-2 mb-2 bg-body-tertiary border-bottom">
-                                    <input type="search" class="form-control" autocomplete="false" placeholder="Type to filter..." id = "filterInput">
+                                    <input type="search" class="form-control filter-input" autocomplete="false" placeholder="Type to filter...">
                                 </form>
                                 <li class="dropdown-list" ><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
                                     <span class="d-inline-block bg-danger rounded-circle p-1"></span>
@@ -133,8 +133,29 @@
                 </div>
             </div>
         </div>
-
         <hr>
+
+        <!-- Display plate items -->
+        <div class="container events-container">
+            <div class="row d-flex">
+                <div class="col-7 d-flex justify-content-center align-items-center">
+                    This is an event deeeeeesssssssssssssssssccccccccccccccccccccrrrrrrrrirrrirriririririrpttionionionoino
+                </div>
+                <div class="col-2 d-flex justify-content-center align-items-center">
+                    <span class="danger-highlight">
+                    DUE: 2024-23-4
+                    </span>
+                </div>
+                <div class="col-2 d-flex justify-content-center align-items-center">
+                    <span class="black-highlight">
+                    High Priority
+                    </span>
+                </div>
+                <div class="col-1 d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-trash-can text-danger"></i>
+                </div>
+            </div>
+        </div>
 
         <button class="btn custom-button" id="edit-button">
 
