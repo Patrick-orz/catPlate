@@ -77,4 +77,7 @@ $(".add-input").click(async() => {
     $(".priority-input").val($(".dropdown-item.active").text().trim());
     $(".filter-input").val('');
     updatePriority();
+
+    // Tell other js file that there's pending plates change
+    $("#js-communication").trigger("pending-plates-change");
 })

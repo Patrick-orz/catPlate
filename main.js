@@ -3,6 +3,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const { Tray, Menu, nativeImage } = require('electron/main');
 const path = require('path');
+const fs = require('fs');
 const Store = require('./src/js/store.js');
 
 // Store class for todo, or what's on plate

@@ -1,8 +1,8 @@
 // From
 // https://gist.github.com/ccnokes/95cb454860dbf8577e88d734c3f31e08#file-store-js
 const electron = require('electron');
-const path = require('node:path');
-const fs = require('node:fs');
+const path = require('path');
+const fs = require('fs');
 
 class Store {
   constructor(opts) {

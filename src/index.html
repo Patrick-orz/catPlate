@@ -37,6 +37,9 @@
 
     <!-- BODY -->
     <body>
+        <!-- Arbitrary span for communication between js files -->
+        <span id="js-communication"></span>
+
         <!-- Header -->
         <div class="p-2">
             <h1 class="text-center">Plates🍽️</h1>
@@ -136,25 +139,25 @@
         <hr>
 
         <!-- Display plate items -->
-        <div class="container events-container">
-            <div class="row d-flex">
-                <div class="col-7 d-flex justify-content-center align-items-center">
-                    This is an event deeeeeesssssssssssssssssccccccccccccccccccccrrrrrrrrirrrirriririririrpttionionionoino
-                </div>
-                <div class="col-2 d-flex justify-content-center align-items-center">
-                    <span class="danger-highlight">
-                    DUE: 2024-23-4
-                    </span>
-                </div>
-                <div class="col-2 d-flex justify-content-center align-items-center">
-                    <span class="black-highlight">
-                    High Priority
-                    </span>
-                </div>
-                <div class="col-1 d-flex justify-content-center align-items-center">
-                    <i class="fa-solid fa-trash-can text-danger"></i>
-                </div>
-            </div>
+        <div class="container" id="events-container">
+            <!-- <div class="row d-flex"> -->
+            <!--     <div class="col-7 d-flex justify-content-center align-items-center"> -->
+            <!--         This is an event deeeeeesssssssssssssssssccccccccccccccccccccrrrrrrrrirrrirriririririrpttionionionoino -->
+            <!--     </div> -->
+            <!--     <div class="col-2 d-flex justify-content-center align-items-center"> -->
+            <!--         <span class="danger-highlight"> -->
+            <!--         DUE: 2024-23-4 -->
+            <!--         </span> -->
+            <!--     </div> -->
+            <!--     <div class="col-2 d-flex justify-content-center align-items-center"> -->
+            <!--         <span class="black-highlight"> -->
+            <!--         High Priority -->
+            <!--         </span> -->
+            <!--     </div> -->
+            <!--     <div class="col-1 d-flex justify-content-center align-items-center"> -->
+            <!--         <i class="fa-solid fa-trash-can text-danger"></i> -->
+            <!--     </div> -->
+            <!-- </div> -->
         </div>
 
         <button class="btn custom-button" id="edit-button">
@@ -181,7 +184,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!-- Link renderer process -->
     <script src="./js/renderer.js" type = "module"></script>
-    <!-- Link event adder -->
-    <script src="./js/eventAdder.js"></script>
+    <!-- Link events related -->
+    <script src="./js/eventAdder.js" type = "module"></script>
+    <script src="./js/eventsList.js" type = "module"></script>
 </html>
 
