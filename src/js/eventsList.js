@@ -24,17 +24,65 @@ async function handleRemoval(){
         events.splice($(this).index('.confirmDelete-input'), 1);
         console.log(events);
 
-        plate.savePlate("events", events);
+        await plate.savePlate("events", events);
         // Tell other js file that there's pending plates change
         $("#js-communication").trigger("pending-plates-change");
 
     })
 }
+function prioritySort(){
+    return function(a,b){
+        if(a["priority"] == b["priority"]){
+            return 0;
+        }else if(a["priority"] > b["priority"]){
+            return -1;
+        }else{
+            return 1;
+        }
+    };
+}
+function dueDateSort(){
+    return function(a,b){
+        let aDate = Date.parse(a["due"]);
+        let bDate = Date.parse(b["due"]);
+
+        aDate = (isNaN(aDate)?Math.pow(10,10000):aDate);
+        bDate = (isNaN(bDate)?Math.pow(10,10000):bDate);
+        console.log(aDate);
+        if(aDate == bDate){
+            return 0;
+        }else if(aDate > bDate){
+            return 1;
+        }else{
+            return -1;
+        }
+    }
+}
 async function updatePlate() {
     // init
     let events = await plate.loadPlate("events");
+    const order = await plate.loadPlate("sortBy");
     const container = $("#events-container");
     container.html('');
+
+    // sort events according to order
+    // 0: Added Time 1: Reverse 2: Priority 3: Reverse 4: Due date 5: Reverse
+    if(order == 0||order == 1){
+        // naturally sorted this way
+        if(order == 1){
+            events.reverse();
+        }
+    }else if(order == 2||order == 3){
+        events.sort(prioritySort());
+        if(order == 3){
+            events.reverse();
+        }
+    }else{
+        events.sort(dueDateSort());
+        if(order == 5){
+            events.reverse();
+        }
+    }
 
     for(let i=0;i<await events.length;i++){
         // parse stored JSON

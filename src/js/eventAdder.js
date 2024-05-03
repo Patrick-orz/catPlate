@@ -17,7 +17,7 @@ function updatePriority() {
 $(".filter-input").on('input', updatePriority);
 
 // Init priority
-$(".priority-input").val($(".dropdown-item.active").text().trim());
+$(".priority-input").val($(".dropdown-item.priority-item.active").text().trim());
 // Priority dropdown select
 $(".dropdown-item").click(function (e) {
     // update active & display
@@ -25,7 +25,7 @@ $(".dropdown-item").click(function (e) {
     $(this).addClass("active");
 
     // update text
-    $(".priority-input").val($(".dropdown-item.active").text().trim());
+    $(".priority-input").val($(".dropdown-item.priority-item.active").text().trim());
 });
 
 // Add button
@@ -65,7 +65,7 @@ $(".add-input").click(async() => {
     // console.log(storedEvents);
 
     // Store locally
-    plate.savePlate("events", storedEvents);
+    await plate.savePlate("events", storedEvents);
 
     // Reset input
     $(".description-input").val('');

@@ -12,6 +12,7 @@ const plate = new Store({
     defaults: {
         text: "Write something!", // Pure text (what you see when editing)
         events: [],
+        sortBy: 0, // how events are listed
     }
 })
 

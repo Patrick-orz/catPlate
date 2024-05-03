@@ -44,13 +44,74 @@
         <span id="js-communication"></span>
 
         <!-- Header -->
-        <div class="p-2">
-            <h1 class="text-center">Plates🍽️</h1>
+        <div class="p-2 d-flex justify-content-between">
+
+            <!-- Hidden button to center Plates title -->
+            <div class="invisible">
+                <label for="priorityLevel">Sort By</label>
+                <div class="input-group mb-3 dropstart">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="sortBy" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        <!-- <i class="fa-solid fa-layer-group"></i> -->
+                        <span class="selected-sort-by">
+                            Nice
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="text-center">Plates🍽️</h1>
+            </div>
+
+            <!-- Sort By -->
+            <div>
+                <label for="priorityLevel">Sort By</label>
+                <div class="input-group mb-3 dropstart">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="sortBy" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        <!-- <i class="fa-solid fa-layer-group"></i> -->
+                        <span class="selected-sort-by">
+                            Nice
+                        </span>
+                    </button>
+
+
+                    <ul class="list-unstyled mb-0 dropdown-menu" aria-labelledby="sortBy">
+
+                        <form class="p-2 mb-2 bg-body-tertiary border-bottom">
+                            <input type="search" class="form-control filter-input" autocomplete="false" placeholder="Type to filter...">
+                        </form>
+                        <li class="dropdown-list" ><a class="dropdown-item sort-item d-flex align-items-center gap-2 py-2" href="#">
+                            <span class="d-inline-block bg-success rounded-circle p-1"></span>
+                            Added Time
+                        </a></li>
+                        <li class="dropdown-list" ><a class="dropdown-item sort-item d-flex align-items-center gap-2 py-2" href="#">
+                            <span class="d-inline-block bg-success rounded-circle p-1"></span>
+                            Reverse Added Time
+                        </a></li>
+                        <li class="dropdown-list" ><a class="dropdown-item sort-item d-flex align-items-center gap-2 py-2" href="#">
+                            <span class="d-inline-block bg-primary rounded-circle p-1"></span>
+                            Priority
+                        </a></li>
+                        <li class="dropdown-list" ><a class="dropdown-item sort-item d-flex align-items-center gap-2 py-2" href="#">
+                            <span class="d-inline-block bg-primary rounded-circle p-1"></span>
+                            Reverse Priority
+                        </a></li>
+                        <li class="dropdown-list" ><a class="dropdown-item sort-item d-flex align-items-center gap-2 py-2" href="#">
+                            <span class="d-inline-block bg-warning rounded-circle p-1"></span>
+                            Due Date
+                        </a></li>
+                        <li class="dropdown-list" ><a class="dropdown-item sort-item d-flex align-items-center gap-2 py-2" href="#">
+                            <span class="d-inline-block bg-warning rounded-circle p-1"></span>
+                            Reverse Due Date
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <hr>
 
-        <!-- https://getbootstrap.com/docs/5.3/examples/ -->
-        <!-- Event adder -->
+            <!-- https://getbootstrap.com/docs/5.3/examples/ -->
+            <!-- Event adder -->
         <div class="container">
             <div class="row d-flex">
                 <!-- Event description -->
@@ -80,20 +141,20 @@
                                 <form class="p-2 mb-2 bg-body-tertiary border-bottom">
                                     <input type="search" class="form-control filter-input" autocomplete="false" placeholder="Type to filter...">
                                 </form>
-                                <li class="dropdown-list" ><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                <li class="dropdown-list" ><a class="dropdown-item priority-item d-flex align-items-center gap-2 py-2" href="#">
                                     <span class="d-inline-block bg-danger rounded-circle p-1"></span>
                                     High Priority
                                 </a></li>
-                                <li class="dropdown-list" ><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                <li class="dropdown-list" ><a class="dropdown-item priority-item d-flex align-items-center gap-2 py-2" href="#">
                                     <span class="d-inline-block bg-warning rounded-circle p-1"></span>
                                     Medium Priority
                                 </a></li>
-                                <li class="dropdown-list" ><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                <li class="dropdown-list" ><a class="dropdown-item priority-item d-flex align-items-center gap-2 py-2" href="#">
                                     <span class="d-inline-block bg-success rounded-circle p-1"></span>
                                     Low Priority
                                 </a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li class="dropdown-list" ><a class="active dropdown-item-default dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                <li class="dropdown-list" ><a class="active dropdown-item-default dropdown-item priority-item d-flex align-items-center gap-2 py-2" href="#">
                                     <span class="d-inline-block bg-secondary rounded-circle p-1"></span>
                                     <i>None</i>
                                 </a></li>
@@ -190,5 +251,7 @@
     <!-- Link events related -->
     <script src="./js/eventAdder.js" type = "module"></script>
     <script src="./js/eventsList.js" type = "module"></script>
+    <!-- Link sortBy widget -->
+    <script src="./js/sortBy.js" type = "module"></script>
 </html>
 
