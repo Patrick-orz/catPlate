@@ -93,6 +93,38 @@ async function updatePlate() {
         const highlights = ["black-highlight", "success-highlight", "warning-highlight", "danger-highlight"];
         const priorities = ["None", "Low Priority", "Medium Priority", "High Priority"];
 
+        const notOverdue =
+                '<div class="col-2 d-flex justify-content-center align-items-center">' +
+                    '<span class="black-highlight">' +
+                'DUE: ' + due +
+                    '</span>' +
+                '</div>';
+        const overdueHr = Math.floor( ((Date.parse(Date())-Date.parse(due)) / 1000 / 60 / 60) );
+        const overdueD  = Math.floor( ((Date.parse(Date())-Date.parse(due)) / 1000 / 60 / 60 / 24) );
+        const overdue =
+                '<div class="col-2 d-flex flex-column justify-content-center align-items-center">' +
+                    '<span class="fs-6 danger-highlight">' +
+                'OVERDUE: ' + due +
+                    '</span>' +
+                    '<span class="danger-highlight">' +
+                overdueHr + 'hr / ' + overdueD + 'd ' + 'ago' +
+                    '</span>' +
+                '</div>';
+
+
+        let dueDate;
+
+        // console.log(Date.parse(due));
+        // console.log(Date.parse(Date()));
+        if(Date.parse(due)<Date.parse(Date())){
+            dueDate = overdue;
+            console.log("OVERDUE");
+        }else{
+            dueDate = notOverdue;
+            console.log("chilling");
+        }
+
+
         // construct event into html
         let event =
             '<div class="row d-flex">' +
@@ -104,11 +136,7 @@ async function updatePlate() {
                 priorities[priority] +
                     '</span>' +
                 '</div>' +
-                '<div class="col-2 d-flex justify-content-center align-items-center">' +
-                    '<span class="black-highlight">' +
-                'DUE: ' + due +
-                    '</span>' +
-                '</div>' +
+                dueDate +
                     '<div class="col-1 d-flex justify-content-center align-items-center removal-container">' +
                         '<button type="button" class="btn deleteEvent-input" data-bs-toggle="modal" data-bs-target="#' + 'eventDeletionConfirmation' + i +'">' +
                             '<i class="fa-solid fa-trash-can text-danger"></i>' +
