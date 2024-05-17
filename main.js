@@ -10,7 +10,7 @@ const Store = require('./src/js/store.js');
 const plate = new Store({
     configName: 'plate',
     defaults: {
-        text: "Write something!", // Pure text (what you see when editing)
+        // Removed legacy text storage
         events: [],
         sortBy: 0, // how events are listed
     }
