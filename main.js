@@ -17,8 +17,9 @@ const plate = new Store({
 })
 
 // New app window
+let win;
 const createWindow = () => {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         webPreferences: {
             preload: path.join(__dirname, 'src/js/preload.js'),
         },
@@ -36,14 +37,24 @@ const setTray = async() => {
     icon.setTemplateImage(true);
     let tray = new Tray(icon);
 
-    const contextMenu = Menu.buildFromTemplate([
-        { label: 'Item1', type: 'radio' },
-        { label: 'Item2', type: 'radio' },
-        { label: 'Item3', type: 'radio', checked: true },
-        { label: 'Item4', type: 'radio' }
-    ]);
-    tray.setToolTip('This is my application.');
-    tray.setContextMenu(contextMenu);
+
+    // tray.setIgnoreDoubleClickEvents(true);
+    // Have window show or hide on tray icon click
+    tray.on('click', function(e){
+        if (win.isVisible()) {
+            win.hide()
+        } else {
+            win.show()
+        }
+    });
+
+    // const contextMenu = Menu.buildFromTemplate([
+    //     { label: 'Item1', type: 'radio' },
+    //     { label: 'Item2', type: 'radio' },
+    //     { label: 'Item3', type: 'radio', checked: true },
+    //     { label: 'Item4', type: 'radio' }
+    // ]);
+    tray.setToolTip('CatPlate Tray Icon');
 }
 
 //Save & load plateRaw
