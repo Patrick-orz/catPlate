@@ -33,7 +33,7 @@ const createWindow = () => {
 // Set tray icon
 const setTray = async() => {
     // Create and display tray icon
-    const icon = await nativeImage.createThumbnailFromPath("./icon/trayTemplate.png",{ width: 19, height: 19 });
+    const icon = await nativeImage.createThumbnailFromPath(path.join(__dirname, "src", "icons", "trayTemplate.png"), { width: 19, height: 19 });
     icon.setTemplateImage(true);
     let tray = new Tray(icon);
 
